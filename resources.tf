@@ -4,7 +4,9 @@
 
 provider "aws" {
   region = var.region
-  profile = "adrianpersonal"
+  assume_role {
+    role_arn = "arn:aws:iam::158381789820:role/OrganizationAccountAccessRole"
+  }
 }
 
 ##################################################################################
@@ -12,6 +14,9 @@ provider "aws" {
 ##################################################################################
 
 data "aws_availability_zones" "available" {}
+
+data "aws_caller_identity" "destination" {
+}
 
 ##################################################################################
 # RESOURCES
