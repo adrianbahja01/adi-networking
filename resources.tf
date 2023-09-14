@@ -23,7 +23,7 @@ data "aws_caller_identity" "destination" {
 ##################################################################################
 locals {
   common_tags = {
-
+    BillingCode = var.billing_code
   }
 }
 
